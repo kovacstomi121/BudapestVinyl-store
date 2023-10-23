@@ -22,7 +22,7 @@ const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
     genreId: searchParams.genreId,
   });
   const genres = await getGenres();
-  const billboard = await getBillboard("d770e883-9ac3-4952-8bf8-797672f9872b");
+  const billboard = await getBillboard("f2d8e489-aff4-4176-90f2-96d573a3168f");
 
   return (
     <Container>
