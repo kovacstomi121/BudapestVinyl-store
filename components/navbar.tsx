@@ -25,7 +25,7 @@ const Navbar = async () => {
           <MainNav data={categories} />
 
           <NavbarActions />
-          <ThemeToggle />
+          
         </div>
       </Container>
     </div>
