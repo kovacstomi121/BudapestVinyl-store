@@ -8,7 +8,7 @@ import logo from "@/assets/logo.png";
 
 import getCategories from "@/actions/get-categories";
 import NavbarActions from "./navbar-actions";
-import { ThemeToggle } from "./theme-toggle";
+import { ThemeToggle } from "./ui/theme-toggle";
 
 export const revalidate = 0;
 
