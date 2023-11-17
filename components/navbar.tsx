@@ -23,7 +23,7 @@ const Navbar = async () => {
             <Image src={logo} alt="Logo" width="250" height="74" />
           </Link>
           <MainNav data={categories} />
-            <ThemeToggle />
+           
           <NavbarActions />
           
         </div>
