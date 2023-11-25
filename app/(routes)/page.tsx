@@ -8,11 +8,13 @@ import Filter from "./genre/[genreId]/components/filter";
 import ProductCard from "@/components/ui/product-card";
 import NoResults from "@/components/ui/no-results";
 import getGenres from "@/actions/get-genres";
+import { Pagination } from "@/components/pagination";
 
 export const revalidate = 0;
 
 interface HomePageProps {
   searchParams: {
+    page: number;
     genreId: string;
   };
 }
@@ -20,9 +22,12 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
   const products = await getProducts({
     genreId: searchParams.genreId,
+    isFeatured: true,
   });
+  const totalPages = 8;
+  const currentPage = Number(searchParams.page) || 1;
   const genres = await getGenres();
-  const billboard = await getBillboard("d770e883-9ac3-4952-8bf8-797672f9872b");
+  const billboard = await getBillboard("9c371d15-f8cc-4f0e-8872-087671afe447");
 
   return (
     <Container>
@@ -41,6 +46,11 @@ const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
                   <ProductCard key={item.id} data={item} />
                 ))}
               </div>
+              <Pagination
+                page={currentPage.toString()}
+                totalPages={totalPages}
+                hasNextPage={currentPage < totalPages}
+              />
             </div>
           </div>
         </div>

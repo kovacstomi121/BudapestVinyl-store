@@ -42,6 +42,23 @@ const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
     router.push(url);
   };
 
+  const clearFilter = () => {
+    const current = qs.parse(searchParams.toString());
+
+    if (current[valueKey]) {
+      delete current[valueKey];
+      const url = qs.stringifyUrl(
+        {
+          url: window.location.href,
+          query: current,
+        },
+        { skipNull: true }
+      );
+
+      router.push(url);
+    }
+  };
+
   return (
     <div className="mb-8">
       <h3 className="text-lg font-semibold">{name}</h3>
@@ -60,6 +77,16 @@ const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
             </Button>
           </div>
         ))}
+        {selectedValue && (
+          <div className="flex items-center">
+            <Button
+              className="rounded-md text-sm p-2 bg-red-500 text-white"
+              onClick={clearFilter}
+            >
+              Törölje a szűrést
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

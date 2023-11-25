@@ -10,6 +10,14 @@ export interface Product {
   images: Image[];
 }
 
+export interface OrderItem {
+  id: string;
+  orderId: string;
+  order: string;
+  productId: string;
+  product: string;
+}
+
 export interface Image {
   id: string;
   url: string;

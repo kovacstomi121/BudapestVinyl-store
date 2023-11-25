@@ -10,32 +10,39 @@ import IconButton from "@/components/ui/icon-button";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
+import { ThemeToggle } from "../theme-toggle";
 
+// Az interfész deklarációja a ProductCard komponens számára, amely  termék adatait várja props-ként.
 interface ProductCard {
   data: Product;
 }
 
+// A ProductCard komponens deklarációja.
 const ProductCard: React.FC<ProductCard> = ({ data }) => {
-  const previewModal = usePreviewModal();
-  const cart = useCart();
-  const router = useRouter();
+  const previewModal = usePreviewModal(); // Preview modal hook inicializálása.
+  const cart = useCart(); // Kosárkezeléshez tartozó hook inicializálása.
+  const router = useRouter(); // Next.js useRouter hook inicializálása az útvonalkezeléshez.
 
+  // A kártya click eseménykezelője, átirányítja a felhasználót a termék részletes nézetére.
   const handleClick = () => {
     router.push(`/product/${data?.id}`);
   };
 
+  // A kép előnézet gomb click eseménykezelője, megnyitja a termék előnézeti modalt.
   const onPreview: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
 
     previewModal.onOpen(data);
   };
 
+  // A kosárba helyezés gomb click eseménykezelője, hozzáadja a terméket a kosárhoz.
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
     event.stopPropagation();
 
     cart.addItem(data);
   };
 
+  // A termékkártya JSX struktúrája.
   return (
     <div
       onClick={handleClick}
@@ -62,14 +69,14 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
           </div>
         </div>
       </div>
-      {/* Leírás*/}
+      {/* Leírás */}
       <div>
         <p className="font-semibold text-lg">
           {data.artist} - {data.name}
         </p>
         <p className="text-sm text-gray-500">{data.genre?.name}</p>
       </div>
-      {/* Árak és vélemények */}
+      {/* Árak */}
       <div className="flex items-center justify-between">
         <Currency value={data?.price} />
       </div>

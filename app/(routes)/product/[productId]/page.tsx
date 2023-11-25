@@ -4,7 +4,6 @@ import getProducts from "@/actions/get-products";
 import Container from "@/components/ui/container";
 import Info from "@/components/info";
 import Gallery from "@/components/gallery";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 export const revalidate = 0;
 
