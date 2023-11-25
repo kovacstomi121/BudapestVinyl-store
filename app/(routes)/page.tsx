@@ -20,6 +20,7 @@ interface HomePageProps {
 const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
   const products = await getProducts({
     genreId: searchParams.genreId,
+    isFeatured: true,
   });
   const genres = await getGenres();
   const billboard = await getBillboard("9c371d15-f8cc-4f0e-8872-087671afe447");
