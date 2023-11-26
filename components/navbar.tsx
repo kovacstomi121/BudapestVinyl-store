@@ -2,21 +2,13 @@ import Link from "next/link";
 import MainNav from "@/components/main-nav";
 import Image from "next/image";
 import logo from "@/assets/logo.png";
-import getCategories from "@/actions/get-categories";
 import NavbarActions from "./navbar-actions";
-
 import SearchBar from "./SearchBar";
-import getProducts from "@/actions/get-products";
-import { SearchInput } from "./search-input";
-
-import { ThemeToggle } from "./ui/theme-toggle";
 import Container from "@/components/ui/container";
 
 export const revalidate = 0;
 
 const Navbar = async () => {
-  const categories = await getCategories();
-
   return (
     <div className="border-b">
       <Container>
@@ -26,6 +18,7 @@ const Navbar = async () => {
           </Link>
 
           <SearchBar />
+
           <NavbarActions />
         </div>
       </Container>

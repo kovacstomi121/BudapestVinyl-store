@@ -10,7 +10,6 @@ import IconButton from "@/components/ui/icon-button";
 import usePreviewModal from "@/hooks/use-preview-modal";
 import useCart from "@/hooks/use-cart";
 import { Product } from "@/types";
-import { ThemeToggle } from "../theme-toggle";
 
 // Az interfész deklarációja a ProductCard komponens számára, amely  termék adatait várja props-ként.
 interface ProductCard {
