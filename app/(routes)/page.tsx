@@ -61,6 +61,7 @@ const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
 
               <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {/* A termékkártyák megjelenítése a featured termékekből */}
+
                 {products.map((item) => (
                   <ProductCard key={item.id} data={item} />
                 ))}

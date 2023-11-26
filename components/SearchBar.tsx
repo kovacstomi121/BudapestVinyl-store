@@ -29,7 +29,9 @@ const SearchBar = (props: Props) => {
   return (
     <div>
       <div className="flex items-center bg-gray-100 p-2 rounded-full md:max:hidden">
+
         {/* Keresés gomb */}
+
         <button>
           <BiSearch size={20} className="opacity-50" />
         </button>
@@ -38,7 +40,11 @@ const SearchBar = (props: Props) => {
         <input
           onChange={handleChange}
           name="searchQuery"
+
           className="outline-none bg-transparent ml-2 caret-blue-500 placeholder:font-light placeholder:text-gray-600 text-[15px] w-full"
+=======
+          className="outline-none bg-transparent ml-2 caret-blue-500 placeholder:font-light placeholder:text-gray-600 text-[15px] w-full "
+>>>>>>> e323e21d5231a9f1e0928ff1d27889127e772aad
           placeholder="Keresés"
           autoComplete="false"
         />
