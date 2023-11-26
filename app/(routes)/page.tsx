@@ -46,11 +46,7 @@ const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
                   <ProductCard key={item.id} data={item} />
                 ))}
               </div>
-              <Pagination
-                page={currentPage.toString()}
-                totalPages={totalPages}
-                hasNextPage={currentPage < totalPages}
-              />
+             
             </div>
           </div>
         </div>
