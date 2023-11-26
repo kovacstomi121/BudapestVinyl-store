@@ -40,11 +40,7 @@ const SearchBar = (props: Props) => {
         <input
           onChange={handleChange}
           name="searchQuery"
-
           className="outline-none bg-transparent ml-2 caret-blue-500 placeholder:font-light placeholder:text-gray-600 text-[15px] w-full"
-=======
-          className="outline-none bg-transparent ml-2 caret-blue-500 placeholder:font-light placeholder:text-gray-600 text-[15px] w-full "
->>>>>>> e323e21d5231a9f1e0928ff1d27889127e772aad
           placeholder="Keresés"
           autoComplete="false"
         />
