@@ -19,7 +19,7 @@ const SearchBar = (props: Props) => {
   };
   return (
     <div>
-      <div className="bg-gray-100 p-2 rounded-full sm:w-32 md:w-auto">
+      <div className="flex items-center bg-gray-100 p-2 rounded-full md:max:hidden">
         <button>
           <BiSearch size={20} className="opacity-50" />
         </button>
