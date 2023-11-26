@@ -28,7 +28,7 @@ const SearchBar = (props: Props) => {
           onChange={handleChange}
           name="searchQuery"
           className="outline-none bg-transparent ml-2 caret-blue-500 placeholder:font-light placeholder:text-gray-600 text-[15px] w-full "
-          placeholder="Albumok keresése"
+          placeholder="Keresés"
           autoComplete="false"
         />
       </div>
