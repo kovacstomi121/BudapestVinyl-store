@@ -5,15 +5,17 @@ import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import ModalProvider from "@/providers/modal-provider";
 import ToastProvider from "@/providers/toast-provider";
-import { ThemeProvider } from "@/providers/theme-provider";
 
+// Az Urbanist betűtípus beállítása
 const font = Urbanist({ subsets: ["latin"] });
 
+// A gyökér elrendezési (layout) komponens, amely definiálja az alkalmazás gyökér HTML struktúráját és globális stílusait
 export const metadata: Metadata = {
   title: "Budapest Vinyl",
   description: "Budapest Vinyl",
 };
 
+// A RootLayout komponens definiálása
 export default function RootLayout({
   children,
 }: {
@@ -22,10 +24,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        {/* Modális ablakokat kezelő providerek */}
         <ModalProvider />
         <ToastProvider />
+
+        {/* Navigációs sáv */}
         <Navbar />
+
+        {/* Gyerek komponensek megjelenítése */}
         {children}
+
+        {/* Aljzat (lábléc) */}
         <Footer />
       </body>
     </html>

@@ -1,49 +1,81 @@
-"use client";
+// Importáljuk a Next.js Image komponenst az optimalizált képek kezeléséhez
+import Image from "next/image";
 
-import { useEffect, useState } from "react";
+// Importáljuk a toast és X komponenst a felhasználói visszajelzések és ikonok használatához
+import { toast } from "react-hot-toast";
+import { X } from "lucide-react";
 
-import Container from "@/components/ui/container";
+// Importáljuk az IconButton komponenst a gombbal támogatott műveletekhez
+import IconButton from "@/components/ui/icon-button";
+
+// Importáljuk a Currency komponenst az ár formázásához
+import Currency from "@/components/ui/currency";
+
+// Importáljuk a useCart hook-ot a kosárhoz kapcsolódó műveletek elvégzéséhez
 import useCart from "@/hooks/use-cart";
 
-import Summary from "./components/summary";
-import CartItem from "./components/cart-item";
+// Importáljuk a Product típust az "@/types" modulból
+import { Product } from "@/types";
 
-export const revalidate = 0;
+// Az interface definiálja a CartItem komponens props-ait, ami egy 'data' objektumot vár
+interface CartItemProps {
+  data: Product;
+}
 
-const CartPage = () => {
-  const [isMounted, setIsMounted] = useState(false);
+// A CartItem komponens, amely a kapott 'data' objektum adatait jeleníti meg a bevásárlókosárban
+const CartItem: React.FC<CartItemProps> = ({ data }) => {
+  // A kosár hook inicializálása
   const cart = useCart();
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  // A törlés funkciója, ami a kosárban lévő elemet eltávolítja
+  const onRemove = () => {
+    cart.removeItem(data.id);
+    // Felugró értesítés a termék eltávolításáról
+    toast.success("Termék eltávolítva a kosárból");
+  };
 
-  if (!isMounted) {
-    return null;
-  }
-
+  // A komponens JSX struktúrája
   return (
-    <div className="bg-white">
-      <Container>
-        <div className="px-4 py-16 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-black">Kosár</h1>
-          <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
-            <div className="lg:col-span-7">
-              {cart.items.length === 0 && (
-                <p className="text-neutral-500">A kosár üres.</p>
-              )}
-              <ul>
-                {cart.items.map((item) => (
-                  <CartItem key={item.id} data={item} />
-                ))}
-              </ul>
-            </div>
-            <Summary />
-          </div>
+    <li className="flex py-6 border-b">
+      {/* A termék képe */}
+      <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
+        <Image
+          fill
+          src={data.images[0].url}
+          alt=""
+          className="object-cover object-center"
+        />
+      </div>
+
+      {/* A termék adatainak megjelenítése */}
+      <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
+        {/* Törlés gomb */}
+        <div className="absolute z-10 right-0 top-0">
+          <IconButton onClick={onRemove} icon={<X size={15} />} />
         </div>
-      </Container>
-    </div>
+
+        {/* A termék neve és művésze */}
+        <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+          <div className="flex justify-between">
+            <p className="text-lg font-semibold text-black">
+              {data.artist} - {data.name}
+            </p>
+          </div>
+
+          {/* A termék műfaja */}
+          <div className="mt-1 flex text-sm">
+            <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
+              {data.genre.name}
+            </p>
+          </div>
+
+          {/* A termék ára */}
+          <Currency value={data.price} />
+        </div>
+      </div>
+    </li>
   );
 };
 
-export default CartPage;
+// Exportáljuk a CartItem komponenst, hogy más komponensek is használhassák
+export default CartItem;
