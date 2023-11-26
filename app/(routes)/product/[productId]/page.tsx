@@ -5,6 +5,7 @@ import Container from "@/components/ui/container";
 import Info from "@/components/info";
 import Gallery from "@/components/gallery";
 
+
 export const revalidate = 0;
 
 interface ProductPageProps {
