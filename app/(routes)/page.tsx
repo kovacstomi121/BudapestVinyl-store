@@ -52,7 +52,7 @@ const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
               {products.length === 0 && <NoResults />}
 
               {/* A termékkártyák komponensek megjelenítése a lekért termékekkel */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {products.map((item) => (
                   <ProductCard key={item.id} data={item} />
                 ))}
