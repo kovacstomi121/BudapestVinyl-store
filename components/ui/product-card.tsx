@@ -73,7 +73,7 @@ const ProductCard: React.FC<ProductCard> = ({ data }) => {
         <p className="font-semibold text-lg">
           {data.artist} - {data.name}
         </p>
-        <p className="text-sm text-gray-500">{data.genre?.name}</p>
+        <p className="text-sm text-gray-500"> {data.genre.name}</p>
       </div>
       {/* Árak */}
       <div className="flex items-center justify-between">
