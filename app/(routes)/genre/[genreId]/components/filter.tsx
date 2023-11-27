@@ -54,27 +54,6 @@ const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
     router.push(url);
   };
 
-  // A szűrő törlése művelet
-  const clearFilter = () => {
-    // Az aktuális lekérdezési paraméterek kiolvasása
-    const current = qs.parse(searchParams.toString());
-
-    // Ha van ilyen szűrő, akkor töröljük
-    if (current[valueKey]) {
-      delete current[valueKey];
-      const url = qs.stringifyUrl(
-        {
-          url: window.location.href,
-          query: current,
-        },
-        { skipNull: true }
-      );
-
-      // A navigáció a frissített URL-re
-      router.push(url);
-    }
-  };
-
   // A komponens JSX struktúrája
   return (
     <div className="mb-8">
@@ -86,7 +65,7 @@ const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
           <div key={filter.id} className="flex items-center">
             <Button
               className={cn(
-                "rounded-md text-sm text-gray-800 p-2 bg-white border border-gray-300",
+                "rounded-md text-sm text-gray-800 p-2 bg-white border ",
                 selectedValue === filter.id && "bg-black text-white"
               )}
               onClick={() => onClick(filter.id)}
@@ -95,18 +74,6 @@ const Filter: React.FC<FilterProps> = ({ data, name, valueKey }) => {
             </Button>
           </div>
         ))}
-
-        {/* A kiválasztott szűrő törlése gomb */}
-        {selectedValue && (
-          <div className="flex items-center">
-            <Button
-              className="rounded-md text-sm p-2 bg-red-500 text-white"
-              onClick={clearFilter}
-            >
-              Törölje a szűrést
-            </Button>
-          </div>
-        )}
       </div>
     </div>
   );
