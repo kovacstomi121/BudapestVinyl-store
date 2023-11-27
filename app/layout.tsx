@@ -23,7 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      <body
+        className={`${font.className}`}
+        style={{ backgroundColor: "#99B080" }}
+      >
         {/* Modális ablakokat kezelő providerek */}
         <ModalProvider />
         <ToastProvider />

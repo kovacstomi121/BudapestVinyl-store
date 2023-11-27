@@ -29,7 +29,7 @@ const CartPage = () => {
 
   // A kosár oldal megjelenítése
   return (
-    <div className="bg-white">
+    <div className="bg-white" style={{ backgroundColor: "#99B080" }}>
       <Container>
         <div className="px-4 py-16 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-black">Kosár</h1>

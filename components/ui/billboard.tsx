@@ -21,7 +21,7 @@ const Billboard: React.FC<BillboardProps> = ({ data }) => {
         {/* A plakát tartalmának középre igazítása */}
         <div className="h-full w-full flex flex-col justify-center items-center text-center gap-y-8">
           {/* A plakát feliratának megjelenítése */}
-          <div className="font-bold text-white text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs">
+          <div className="font-bold text-3xl sm:text-5xl lg:text-6xl sm:max-w-xl max-w-xs text-white bg-opacity-5  ">
             {data.label}
           </div>
         </div>

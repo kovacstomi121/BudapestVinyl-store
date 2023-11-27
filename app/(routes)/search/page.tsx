@@ -48,7 +48,7 @@ const SearchPage: React.FC<SearchPageProps> = ({ searchParams }) => {
 
   // A komponens JSX struktúrája
   return (
-    <div className="bg-white">
+    <div className="bg-white" style={{ backgroundColor: "#99B080" }}>
       <Container>
         <div className="px-4 sm:px-6 lg:px-8 pb-24">
           <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
