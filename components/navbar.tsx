@@ -8,7 +8,7 @@ import Container from "@/components/ui/container";
 // A Navbar komponens, amely a navigációs sáv felső részét és tartalmát definiálja
 const Navbar = async () => {
   return (
-    <div className="border-b">
+    <div>
       <Container>
         <div className="relative px-4 sm:px-6 lg:px-8 flex h-16 items-center">
           {/* A weboldal gyökérére mutató Link komponens */}
