@@ -41,9 +41,6 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
             </div>
           </div>
 
-          {/* Elválasztó vonal */}
-          <hr className="my-10" />
-
           {/* Ajánlott termékek listájának komponense */}
           <ProductList title="Hasonló albumok" items={suggestedProducts} />
         </div>

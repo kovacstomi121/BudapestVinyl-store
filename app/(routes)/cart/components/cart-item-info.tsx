@@ -14,9 +14,7 @@ const CartItemInfo: React.FC<CartItemInfoProps> = ({ product }) => {
 
       {/* A termék műfaját jeleníti meg */}
       <div className="mt-1 flex text-sm">
-        <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
-          {product.genre}
-        </p>
+        <p className="ml-4   pl-4 text-gray-500">{product.genre}</p>
       </div>
 
       {/* A termék árát jeleníti meg */}

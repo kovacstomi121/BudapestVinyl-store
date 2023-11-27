@@ -28,7 +28,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
           <Currency value={data?.price} />
         </p>
       </div>
-      <hr className="my-4" />
+
       <div className="flex flex-col gap-y-6">
         <div className="flex items-center gap-x-4">
           <h3 className="font-semibold text-black">Műfaj:</h3>

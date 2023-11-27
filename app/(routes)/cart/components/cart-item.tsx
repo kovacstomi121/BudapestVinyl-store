@@ -31,7 +31,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
 
   // A komponens JSX struktúrája
   return (
-    <li className="flex py-6 border-b">
+    <li className="flex py-6 ">
       {/* A termék képe */}
       <div className="relative h-24 w-24 rounded-md overflow-hidden sm:h-48 sm:w-48">
         <Image
@@ -59,9 +59,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
 
           {/* A termék műfaja */}
           <div className="mt-1 flex text-sm">
-            <p className="ml-4 border-l border-gray-200 pl-4 text-gray-500">
-              {data.genre.name}
-            </p>
+            <p className="ml-4  pl-4 text-black">{data.genre.name}</p>
           </div>
 
           {/* A termék ára */}
