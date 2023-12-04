@@ -40,7 +40,7 @@ const ProductPage: React.FC<ProductPageProps> = async ({ params }) => {
               <Info data={product} />
             </div>
           </div>
-
+          <hr className="my-10 border-t-2 border-black" />
           {/* Ajánlott termékek listájának komponense */}
           <ProductList title="Hasonló albumok" items={suggestedProducts} />
         </div>
