@@ -33,7 +33,7 @@ const Info: React.FC<InfoProps> = ({ data }) => {
         <div className="flex flex-col gap-y-6">
           <div className="flex items-center gap-x-4">
             <h3 className="font-semibold text-black">Műfaj:</h3>
-            <div>{data.genre.value}</div>
+             <div>{data?.genre.name}</div>
           </div>
         </div>
         <div className="flex flex-col gap-y-6">
