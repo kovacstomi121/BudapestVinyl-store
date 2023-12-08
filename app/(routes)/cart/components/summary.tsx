@@ -26,11 +26,7 @@ const Summary = () => {
       removeAll();
     }
 
-    // Ellenőrzi, hogy a "canceled" paraméter szerepel-e az URL-ben
-    if (searchParams.get("canceled")) {
-      // Sikertelen fizetés esetén hibaüzenet megjelenítése
-      toast.error("Valami hiba történt.");
-    }
+    
   }, [searchParams, removeAll]);
 
   // Kosárban található elemek összértékének kiszámítása
