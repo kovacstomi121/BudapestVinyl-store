@@ -17,13 +17,6 @@ const useCart = create(
     (set, get) => ({
       items: [],
       addItem: (data: Product) => {
-        const currentItems = get().items;
-        const existingItem = currentItems.find((item) => item.id === data.id);
-
-        if (existingItem) {
-          return toast("Már a kosárban van");
-        }
-
         set({ items: [...get().items, data] });
         toast.success("Kosárhoz adva");
       },
