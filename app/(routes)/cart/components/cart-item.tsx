@@ -25,8 +25,7 @@ const CartItem: React.FC<CartItemProps> = ({ data }) => {
   // A törlés funkciója, ami a kosárban lévő elemet eltávolítja
   const onRemove = () => {
     cart.removeItem(data.id);
-    // Felugró értesítés a termék eltávolításáról
-    toast.success("Termék eltávolítva a kosárból");
+   
   };
 
   // A komponens JSX struktúrája
