@@ -28,7 +28,7 @@ const HomePage: React.FC<HomePageProps> = async ({ searchParams }) => {
   const genres = await getGenres();
 
   // Az aszinkron módon lekért hirdetőtábla (billboard) adatok
-  const billboard = await getBillboard("9c371d15-f8cc-4f0e-8872-087671afe447");
+  const billboard = await getBillboard("6b1516aa-603e-4ee8-bed8-e8f4d41ea3b1");
 
   // A komponens JSX struktúrája
   return (
